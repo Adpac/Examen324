@@ -1,3 +1,5 @@
+create database bdadel;
+
 create table Usuario (
  ci varchar(10),
  Usuario varchar(15),
