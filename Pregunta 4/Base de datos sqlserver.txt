@@ -1,0 +1,102 @@
+create table Usuario (
+ ci varchar(10),
+ Usuario varchar(15),
+ password varchar(40),
+ PRIMARY KEY (ci)
+);
+
+create table Persona (
+ ci varchar(10),
+ nombre varchar(50),
+ fecha_de_nacimiento Date,
+ departamento varchar(2),
+ PRIMARY KEY (ci)
+);
+
+create table Nota (
+ci varchar(10),
+Sigla varchar(8),
+Nota1 float,
+Nota2 float,
+Nota3 float,
+Notafinal int,
+PRIMARY KEY (ci,Sigla)
+);
+
+create table facultad(
+ cod_fac varchar(10),
+ nombre_facultad varchar(50),
+ abreviacion varchar(10),
+ PRIMARY KEY (cod_fac)
+);
+
+create table carrera(
+cod_carrera varchar(10),
+nombre_carrera varchar(50),
+cod_fac varchar(10),
+PRIMARY KEY (cod_carrera)
+);
+create table estudiante(
+ci varchar(10),
+matricula varchar(15),
+cod_carrera varchar(10),
+PRIMARY KEY (ci,matricula)
+);
+
+create table docente(
+ci varchar(10),
+grado varchar(10),
+PRIMARY KEY (ci)
+);
+
+create table materia(
+sigla varchar(10),
+nombre_materia varchar(50),
+ci_docente varchar(10),
+PRIMARY KEY (sigla)
+);
+
+INSERT INTO facultad VALUES('FCPN','Facultad de Ciencias Puras y Naturales', 'FCPN');
+INSERT INTO carrera VALUES('INF','Informática','FCPN'); 
+INSERT INTO carrera VALUES('MAT','Matemática','FCPN'); 
+INSERT INTO carrera VALUES('FIS','Física','FCPN'); 
+
+INSERT INTO usuario VALUES('9200842','adpac','123456');
+INSERT INTO persona VALUES('9200842','Adel Ramiro Paco Mamani', '1999-04-05', '02' );
+INSERT INTO estudiante VALUES('9200842','12712312','INF');
+
+INSERT INTO usuario values('10101010','JoJo28','123456');
+INSERT INTO persona VALUES('10101010','Jhonatan Joestar', '1999-05-05', '03' );
+INSERT INTO estudiante VALUES('10101010','123433245','MAT');
+
+INSERT INTO usuario values('10101011','CaroCar12','123456');
+INSERT INTO persona VALUES('10101011','Carolina Carmen Castro Martinez', '1997-12-05', '02' );
+INSERT INTO estudiante VALUES('10101011','12343312','FIS');
+
+INSERT INTO usuario values('10101012','Pat132','123456');
+INSERT INTO persona VALUES('10101012','Patricia Paredes Candia', '1998-02-13', '03' );
+INSERT INTO estudiante VALUES('10101012','123123123','INF');
+
+INSERT INTO usuario values('10101013','AntAl93','123456');
+INSERT INTO persona VALUES('10101013','Antonio Altamirano Alave', '1999-09-03', '02' );
+INSERT INTO estudiante VALUES('10101013','234234234','INF');
+
+INSERT INTO usuario values('10101014','Dan75','123456');
+INSERT INTO persona VALUES('10101014','Daniel Dante Duval Diaz', '1999-09-03', '02' );
+INSERT INTO docente VALUES('10101014','Lic.');
+
+INSERT INTO usuario values('10101015','ValVi245','123456');
+INSERT INTO persona VALUES('10101015','Valeria Valentina Villalobos Perez', '1998-05-25', '03' );
+INSERT INTO docente VALUES('10101015','Lic.');
+
+INSERT INTO materia VALUES('MAT-115','Analisis Matematico','10101014');
+INSERT INTO materia VALUES('INF-111','Introducción a la Informática','10101015');
+
+INSERT INTO nota VALUES('9200842','INF-111',60,65,55,(60+65+55)/3);
+INSERT INTO nota VALUES('9200842','MAT-115',50,65,55,(50+65+55)/3);
+
+INSERT INTO nota VALUES('10101012','INF-111',68,75,58,(68+75+58)/3);
+INSERT INTO nota VALUES('10101012','MAT-115',56,65,45,(56+65+45)/3);
+
+INSERT INTO nota VALUES('10101013','INF-111',88,45,48,(88+45+48)/3);
+INSERT INTO nota VALUES('10101013','MAT-115',66,68,45,(66+68+45)/3);
